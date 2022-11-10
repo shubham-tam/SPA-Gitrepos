@@ -10,7 +10,7 @@ export const User = () => {
   return (
     <div className="container">
       <div className={classes["user-information"]}>
-        <div className="image">
+        <div className={classes.image}>
           <img src={picture} alt="" />
         </div>
         <div className={classes["user-container"]}>

@@ -14,13 +14,13 @@ export const Home = () => {
       </div>
       <div className={classes["search-results"]}>
         <div className={classes.user}>
-          {/* <div> */}
-          <img src={picture} alt="" />
+          <div className={classes.image}>
+            <img src={picture} alt="" />
+          </div>
           <div className={classes["user-info"]}>
             <h3>Name of the user </h3>
             <small> ID</small>
-            <a href="k"> View profile </a>
-            {/* </div> */}
+            <a href="/user"> View profile </a>
           </div>
         </div>
       </div>
