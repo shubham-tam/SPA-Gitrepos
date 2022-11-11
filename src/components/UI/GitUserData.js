@@ -14,10 +14,7 @@ export const GitUserData = ({ user }) => {
           <h2>{login} </h2>
           <small> #{id}</small>
         </div>
-        <Link
-          to={`/user/${login}`}
-          style={{ color: "#f5f5f5", textDecoration: "none" }}
-        >
+        <Link to={`/user/${login}`} className={classes.linkUser}>
           {`View ${login}'s profile`}{" "}
         </Link>
       </div>

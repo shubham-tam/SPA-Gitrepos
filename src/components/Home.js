@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import classes from "../assets/style/home.module.css";
 import axios from "../axios";
 import { GitUserData } from "./UI/GitUserData";
+import { Pages } from "./UI/Pages";
+import GoToTop from "./UI/GoToTop";
 
 export const Home = () => {
   const [query, setQuery] = useState("");
@@ -108,20 +110,17 @@ export const Home = () => {
       <div className={classes["search-form"]}>
         <h2> Github search user </h2>
         <form>
-          <input type="text" value={query} onChange={handleQueryInput} />
+          <input
+            type="text"
+            value={query}
+            onChange={handleQueryInput}
+            placeholder="Enter the username"
+          />
           <button onClick={handleSearchUser}> Search </button>
         </form>
       </div>
-      <div className={classes["more-options"]}>
-        <label>
-          <small> Per Page </small>
-          <select onChange={handlePageLimit}>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-          </select>
-        </label>
+      <div className={classes["page-options"]}>
+        <Pages onChange={handlePageLimit} />
         <div className={classes.pagination}>
           <button onClick={handlePreviousPage}> {page}</button>
           <button onClick={handleNextPage}> {page + 1}</button>
@@ -143,6 +142,7 @@ export const Home = () => {
       ) : (
         <h2>There is nothing to display...</h2>
       )}
+      <GoToTop />
     </div>
   );
 };

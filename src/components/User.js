@@ -6,6 +6,7 @@ import github from "..//assets/images/github.png";
 import location from "..//assets/images/location.png";
 import user from "..//assets/images/user.png";
 import classes from "..//assets/style/user.module.css";
+import GoToTop from "./UI/GoToTop";
 import axios from "..//axios";
 
 export const User = () => {
@@ -18,9 +19,6 @@ export const User = () => {
 
   const [repos, setRepos] = useState([]);
 
-  //authors
-  // const [authors, setAuthors] = useState([]);
-
   useEffect(() => {
     const fetchUserInformation = async () => {
       try {
@@ -30,7 +28,6 @@ export const User = () => {
         ]);
         setUserInfo(res[0].data);
         setRepos(res[1].data);
-
         // console.log(res[0].data);
         // console.log(res[1].data);
       } catch (err) {
@@ -43,7 +40,7 @@ export const User = () => {
   return (
     <div className="container">
       <Link to="/" className={classes.back}>
-        Back
+        Go Back
       </Link>
       <div className={classes["user-information"]}>
         <div className={classes.image}>
@@ -55,19 +52,19 @@ export const User = () => {
           <div className={classes["more-data"]}>
             <p>
               {" "}
-              <img src={user} alt="" />
+              <img src={user} alt="" className={classes.icon} />
               {userInfo?.followers} Followers. Following {userInfo?.following}
             </p>
 
             {userInfo?.location && (
               <p>
-                <img src={location} alt="" />
+                <img src={location} alt="" className={classes.icon} />
                 {userInfo?.location}
               </p>
             )}
             {userInfo?.blog && (
               <p>
-                <img src={site} alt="" />
+                <img src={site} alt="" className={classes.icon} />
 
                 <a
                   href={userInfo?.blog}
@@ -81,7 +78,7 @@ export const User = () => {
             )}
             <p>
               {" "}
-              <img src={github} alt="" />
+              <img src={github} alt="" className={classes.icon} />
               <a
                 href={userInfo?.html_url}
                 target="_blank"
@@ -105,6 +102,7 @@ export const User = () => {
       ) : (
         <h2>The user has no repositories in their Github account.</h2>
       )}
+      <GoToTop />
     </div>
   );
 };

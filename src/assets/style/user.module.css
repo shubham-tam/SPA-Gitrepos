@@ -1,10 +1,11 @@
 .back {
-  /* color: #f5f5f5; */
-  background-color: #333;
+  background: #333;
+  color: #f5f5f5;
   border-radius: 7px;
   padding: 10px;
   display: inline-block;
   margin: 10px 0;
+  text-decoration: none;
 }
 
 .user-information {
@@ -13,27 +14,30 @@
   padding: 30px 30px;
   border-radius: 10px;
   display: flex;
-  /* justify-content: center; */
   flex-direction: row;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .user-information .image {
   width: 30%;
   margin-right: 30px;
 }
+
 .user-information .image img {
   width: 200px;
   border-radius: 10px;
   object-fit: cover;
 }
-.user-content {
-  padding: 10px;
+
+.icon {
+  margin-right: 10px;
 }
 
 .more-data {
   font-size: 13px;
-  font-weight: 100;
+  font-weight: 400;
 }
+
 .more-data p {
   padding: 4px;
   display: flex;
@@ -43,15 +47,6 @@
 
 .more-data img {
   width: 20px;
-}
-
-.back {
-  background: #ebcb8f;
-  color: #f5f5f5;
-  border-radius: 7px;
-  padding: 10px;
-  display: inline-block;
-  margin: 10px 0;
 }
 
 .list {

@@ -19,10 +19,8 @@ export const Repos = ({ repo }) => {
     owner,
   } = repo;
 
-  // moment(updated_at).format('DD/MM/YYYY HH:mm')
-
   return (
-    <div className="repo">
+    <div>
       <div className={classes.header}>
         <h3>
           <a href={html_url} target="_blank" rel="noreferrer">
@@ -31,36 +29,36 @@ export const Repos = ({ repo }) => {
           - <small> {owner.login}</small>
         </h3>
       </div>
-      <div className={classes.moreInfos}>
-        <div>
-          {" "}
-          <img src={fork} alt="" className={classes.icon} />
-          Forks: {forks}
+      <div className={classes.repoInfo}>
+        <div className={classes.moreInfos}>
+          <div>
+            {" "}
+            <img src={fork} alt="" className={classes.icon} />
+            Forks: {forks}
+          </div>
+          <div>
+            {" "}
+            <img src={star} alt="" className={classes.icon} />
+            Stars: {stargazers_count}
+          </div>
+          <div> Watchers: {watchers}</div>
+          <div> Branch: {default_branch}</div>
+          <div> Issues: {open_issues}</div>
         </div>
-        <div>
+        <div className={classes.dateNTime}>
           {" "}
-          <img src={star} alt="" className={classes.icon} />
-          Stars: {stargazers_count}
+          Last updated at:
+          {moment(updated_at).format("DD-MM-YYYY on  HH:mm ")}
         </div>
-        <div> Watchers: {watchers}</div>
-        <div> Branch: {default_branch}</div>
-        <div> Issues: {open_issues}</div>
-      </div>
-      <br />
-      <div className={classes.dateNTime}>
-        {" "}
-        Last updated at:
-        {moment(updated_at).format("DD/MM/YYYY on  HH:mm ")}
-      </div>
 
-      <div className={classes.description}>{description}</div>
+        <div className={classes.description}>{description}</div>
 
-      {language && (
-        <small>
-          <em> Written in {language} </em>
-        </small>
-      )}
-      <br />
+        {language && (
+          <small className={classes.language}>
+            <em> Written in {language} </em>
+          </small>
+        )}
+      </div>
     </div>
   );
 };
