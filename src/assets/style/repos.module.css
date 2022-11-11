@@ -1,0 +1,27 @@
+.moreInfos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  display: block;
+}
+
+.header a {
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.description {
+  font-size: 18px;
+}
+
+.dateNTime {
+  display: block;
+}

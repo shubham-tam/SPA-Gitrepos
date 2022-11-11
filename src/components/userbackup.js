@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Repos } from "./UI/Repos";
+
 import site from "..//assets/images/site.png";
 import github from "..//assets/images/github.png";
 import location from "..//assets/images/location.png";
 import user from "..//assets/images/user.png";
 import classes from "..//assets/style/user.module.css";
+// import picture from "..//../src/img.jpg";
 import axios from "..//axios";
 
 export const User = () => {
@@ -18,9 +19,6 @@ export const User = () => {
 
   const [repos, setRepos] = useState([]);
 
-  //authors
-  // const [authors, setAuthors] = useState([]);
-
   useEffect(() => {
     const fetchUserInformation = async () => {
       try {
@@ -28,17 +26,17 @@ export const User = () => {
           axios.get(`users/${login}`),
           axios.get(`users/${login}/repos`),
         ]);
-        setUserInfo(res[0].data);
-        setRepos(res[1].data);
+        // setUserInfo(res[0].data);
+        // setRepos(res[1].data);
 
-        // console.log(res[0].data);
-        // console.log(res[1].data);
+        console.log(res[0].data);
+        console.log(res[1].data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchUserInformation();
-  }, [login]);
+  }, []);
 
   return (
     <div className="container">
@@ -69,42 +67,30 @@ export const User = () => {
               <p>
                 <img src={site} alt="" />
 
-                <a
-                  href={userInfo?.blog}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={classes.website}
-                >
-                  {userInfo?.blog}{" "}
-                </a>
+                <a href={userInfo?.blog}>Visit ${userInfo?.login}'s site </a>
               </p>
             )}
             <p>
               {" "}
               <img src={github} alt="" />
-              <a
-                href={userInfo?.html_url}
-                target="_blank"
-                rel="noreferrer"
-                className={classes.links}
-              >
-                {`Visit ${login} on github`}{" "}
-              </a>
+              <a href={userInfo?.html_url}>View GitHub Profile</a>
             </p>
           </div>
         </div>
       </div>
-      {repos ? (
-        repos.map((repo) => {
-          return (
-            <li key={repo.id} className={classes.list}>
-              <Repos id={repo.id} repo={repo} />
-            </li>
-          );
-        })
-      ) : (
-        <h2>The user has no repositories in their Github account.</h2>
-      )}
+      <div className={classes["user-repos"]}>
+        <div className={classes.repo}>
+          <h3>Name of the repo</h3>
+          <p>
+            {" "}
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus
+            quas rerum fugiat molestiae quis suscipit, beatae minima? Non,
+            accusantium officia laudantium inventore voluptate eum similique
+            incidunt, ullam architecto, aut ad.
+          </p>
+          <small> Written in xyz language</small>
+        </div>
+      </div>
     </div>
   );
 };
