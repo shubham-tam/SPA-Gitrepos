@@ -4,7 +4,8 @@ import axios from "../axios";
 import { GitUserData } from "./UI/GitUserData";
 import { Pages } from "./UI/Pages";
 import GoToTop from "./UI/GoToTop";
-import { PageButtons } from "./UI/PageButtons";
+import { PageButtonPlus } from "./UI/PageButtonPlus";
+import { PageButtonMinus } from "./UI/PageButtonMinus";
 
 export const Home = () => {
   const [query, setQuery] = useState("");
@@ -123,10 +124,12 @@ export const Home = () => {
       <div className={classes["page-options"]}>
         <Pages onChange={handlePageLimit} />
         <div className={classes.pagination}>
-          <PageButtons
+          {/* <PageButtonPlus
             onClick={(handlePreviousPage, handleNextPage)}
             page={page}
-          />
+          /> */}
+          <PageButtonMinus onClick={handlePreviousPage} page={page} />
+          <PageButtonPlus onClick={handleNextPage} page={page} />
         </div>
       </div>
       {users ? (

@@ -1,11 +1,11 @@
 import React from "react";
 
-export const PageButtons = (props) => {
+export const PageButtonMinus = (props) => {
   return (
     <div>
       {" "}
       <button onClick={props.onClick}> {props.page}</button>
-      <button onClick={props.onClick}> {props.page + 1}</button>
+      {/* <button onClick={props.onClick}> {props.page + 1}</button> */}
       {/* {!totalUsers ? (
       ""
     ) : (
