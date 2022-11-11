@@ -4,6 +4,7 @@ import axios from "../axios";
 import { GitUserData } from "./UI/GitUserData";
 import { Pages } from "./UI/Pages";
 import GoToTop from "./UI/GoToTop";
+import { PageButtons } from "./UI/PageButtons";
 
 export const Home = () => {
   const [query, setQuery] = useState("");
@@ -92,18 +93,18 @@ export const Home = () => {
     displayUserOnChange();
   }, [page, userLimit]);
 
-  const pagenation = () => {
-    if (totalUsers === 0) {
-      return null;
-    } else {
-      let a = { userLimit };
-      let b = { setTotalUsers };
-      let finalPage = `${b % a}` + 1;
-      // return pageNo;
-      // console.log(b);
-      console.log(finalPage);
-    }
-  };
+  // const pagenation = () => {
+  //   if (totalUsers === 0) {
+  //     return null;
+  //   } else {
+  //     let a = { userLimit };
+  //     let b = { setTotalUsers };
+  //     let finalPage = `${b % a}` + 1;
+  //     // return pageNo;
+  //     // console.log(b);
+  //     console.log(finalPage);
+  //   }
+  // };
 
   return (
     <div className="container">
@@ -122,13 +123,10 @@ export const Home = () => {
       <div className={classes["page-options"]}>
         <Pages onChange={handlePageLimit} />
         <div className={classes.pagination}>
-          <button onClick={handlePreviousPage}> {page}</button>
-          <button onClick={handleNextPage}> {page + 1}</button>
-          {/* {!totalUsers ? (
-              ""
-            ) : (
-              <button onClick={handleNextPage}> {pagenation}</button>
-            )} */}
+          <PageButtons
+            onClick={(handlePreviousPage, handleNextPage)}
+            page={page}
+          />
         </div>
       </div>
       {users ? (
