@@ -153,14 +153,14 @@
 //   );
 // };
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import classes from "..//..//assets/style/home.module.css";
 import axios from "..//..//axios";
 import { GitUserData } from "../UI/GitUserData";
 import { Pages } from "../UI/Pages";
 import GoToTop from "../UI/GoToTop";
-import { PageButtonPlus } from "../UI/PageButtonPlus";
-import { PageButtonMinus } from "../UI/PageButtonMinus";
+// import { PageButtonPlus } from "../UI/PageButtonPlus";
+// import { PageButtonMinus } from "../UI/PageButtonMinus";
 
 export const Home = () => {
   const [query, setQuery] = useState("");
@@ -169,6 +169,7 @@ export const Home = () => {
 
   //Page
   const [page, setPage] = useState(1);
+  let pageForRequest = page;
 
   //user per page limit
   const [userLimit, setUserLimit] = useState(10);
@@ -192,9 +193,48 @@ export const Home = () => {
     });
   };
 
-  const handleNextPage = () => {
+  // const nxtPG = useCallback(() => {
+  const handleNextPage = async () => {
     setPage((page) => page + 1);
+    pageForRequest += 1;
+    if (query) {
+      const { data } = await axios.get(
+        // `/search/users?q=${query}`
+        `/search/users`,
+        {
+          params: {
+            q: query,
+            page: pageForRequest,
+            per_page: userLimit,
+          },
+        }
+      );
+      setUsers(data?.items);
+      setTotalUsers(data.total_count);
+    }
+    // fetchUsers(query, page, userLimit);
   };
+  // }, [query, userLimit, page]);
+
+  // const handleNextPage = async () => {
+  //   setPage((page) => page + 1);
+  //   if (query) {
+  //     const { data } = await axios.get(
+  //       // `/search/users?q=${query}`
+  //       `/search/users`,
+  //       {
+  //         params: {
+  //           q: query,
+  //           page: page,
+  //           per_page: userLimit,
+  //         },
+  //       }
+  //     );
+  //     setUsers(data?.items);
+  //     setTotalUsers(data.total_count);
+  //   }
+  //   // fetchUsers(query, page, userLimit);
+  // };
 
   const handlePageLimit = (e) => {
     const value = e.target.value;
@@ -231,17 +271,36 @@ export const Home = () => {
   //   }
   // };
 
+  // const fetchUsers = async (query, users, userLimit) => {
+  //   if (query) {
+  //     const { data } = await axios.get(
+  //       // `/search/users?q=${query}`
+  //       `/search/users`,
+  //       {
+  //         params: {
+  //           q: query,
+  //           page: page,
+  //           per_page: userLimit,
+  //         },
+  //       }
+  //     );
+  //     setUsers(data?.items);
+  //     setTotalUsers(data.total_count);
+  //   }
+
   const handleSearchUser = async (e) => {
     e.preventDefault();
     if (query) {
       const { data } = await axios.get(
-        `/search/users?q=${query}`
-        // , {
-        //   params: {
-        //     page: page,
-        //     per_page: userLimit,
-        //   },
-        // }
+        // `/search/users?q=${query}`
+        `/search/users`,
+        {
+          params: {
+            q: query,
+            page: page,
+            per_page: userLimit,
+          },
+        }
       );
       setUsers(data?.items);
       setTotalUsers(data.total_count);
@@ -260,7 +319,7 @@ export const Home = () => {
     //   }
     // };
     // displayUserOnChange();
-  }, [page, userLimit]);
+  }, [userLimit]);
 
   // const pagenation = () => {
   //   if (totalUsers === 0) {
@@ -301,22 +360,23 @@ export const Home = () => {
         </div>
       </div> */}
       {users ? (
-        users.map((user, index) => {
-          if (index >= userLimit) {
-            return;
-          } else {
-            return (
-              <li className={classes.list} key={user.id}>
-                <GitUserData user={user} />
-              </li>
-            );
-          }
+        users.map((user) => {
+          // if (index >= userLimit) {
+          //   return;
+          // } else {
+          return (
+            <li className={classes.list} key={user.id}>
+              <GitUserData user={user} />
+            </li>
+          );
+          // }
         })
       ) : (
         <h2>There is nothing to display...</h2>
       )}
 
-      {query ? (
+      {/* {query && users ? <></> : <h2> Please type to find some users</h2>} */}
+      {/* { (
         <>
           <div
             className={classes["page-options"]}
@@ -325,6 +385,23 @@ export const Home = () => {
             <Pages onChange={handlePageLimit} />
             <div className={classes.pagination}>
               <button onClick={handlePreviousPage}> {page}</button>
+              <button onClick={handleNextPage}> {page + 1}</button>
+            </div>
+          </div>
+          <GoToTop />
+        </>
+      )} */}
+
+      {query && users ? (
+        <>
+          <div
+            className={classes["page-options"]}
+            style={{ backgroundColor: "#f5f5f5" }}
+          >
+            <Pages onChange={handlePageLimit} />
+            <div className={classes.pagination}>
+              <button onClick={handlePreviousPage}> {page}</button>
+              {/* <button onClick={nxtPG.handleNextPage}> {page + 1}</button> */}
               <button onClick={handleNextPage}> {page + 1}</button>
             </div>
           </div>
