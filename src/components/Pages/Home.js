@@ -278,8 +278,8 @@ export const Home = () => {
   return (
     <div className="container">
       <div className={classes["search-form"]}>
-        <h2> Github search user </h2>
-        <form>
+        <h2 style={{ backgroundColor: "#333" }}> Github search user </h2>
+        <form style={{ backgroundColor: "#333" }}>
           <input
             type="text"
             value={query}
@@ -289,17 +289,17 @@ export const Home = () => {
           <button onClick={handleSearchUser}> Search </button>
         </form>
       </div>
-      <div className={classes["page-options"]}>
+      {/* <div
+        className={classes["page-options"]}
+        style={{ backgroundColor: "#f5f5f5" }}
+      >
         <Pages onChange={handlePageLimit} />
         <div className={classes.pagination}>
-          {/* <PageButtonPlus
-            onClick={(handlePreviousPage, handleNextPage)}
-            page={page}
-          /> */}
+       
           <PageButtonMinus onClick={handlePreviousPage} page={page} />
           <PageButtonPlus onClick={handleNextPage} page={page} />
         </div>
-      </div>
+      </div> */}
       {users ? (
         users.map((user, index) => {
           if (index >= userLimit) {
@@ -315,17 +315,24 @@ export const Home = () => {
       ) : (
         <h2>There is nothing to display...</h2>
       )}
-      {/* {users ? (
-       for (i=0;i<userLimit;i++ ){
-        <li className={classes.list} key={users[i].id}>
-          <GitUserData user = {users[i]}></GitUserData>
-        </li>
-       }
-    ): (
-      <h2>There is nothing to display...</h2>
-    )
-  } */}
-      <GoToTop />
+
+      {query ? (
+        <>
+          <div
+            className={classes["page-options"]}
+            style={{ backgroundColor: "#f5f5f5" }}
+          >
+            <Pages onChange={handlePageLimit} />
+            <div className={classes.pagination}>
+              <button onClick={handlePreviousPage}> {page}</button>
+              <button onClick={handleNextPage}> {page + 1}</button>
+            </div>
+          </div>
+          <GoToTop />
+        </>
+      ) : (
+        <h2> Please type to find some users</h2>
+      )}
     </div>
   );
 };
