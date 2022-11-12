@@ -106,18 +106,6 @@ export const Home = () => {
     if (query) {
       try {
         await fetchUsers();
-        // if (status !== 200) {
-        //   toast.error("Success Notification !", {
-        //     position: toast.POSITION.TOP_RIGHT,
-        //   });
-        // }
-
-        // setUsers(data?.items);
-        // setSearchFetchList(true);
-        // // setTotalUsers(data.total_count);
-        // const totalUsers = data.total_count;
-        // const maxPage = totalUsers > 1000 ? 1000 : totalUsers;
-        // setMaxPage(Math.ceil(maxPage / userLimit));
       } catch (error) {
         toast.error("something wrong with the api");
       }
@@ -185,7 +173,7 @@ export const Home = () => {
         <>
           <div
             className={classes["page-options"]}
-            style={{ backgroundColor: "#f5f5f5" }}
+            style={{ backgroundColor: "#f0f0f0" }}
           >
             <Pages onChange={handlePageLimit} />
             <div className={classes.pagination}>

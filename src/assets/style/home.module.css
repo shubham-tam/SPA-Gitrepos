@@ -9,7 +9,7 @@
 
 .search-form {
   background: #333;
-  /* background: #f5f5f5; */
+  /* background: #f0f0f0; */
   padding: 10px 40px;
   border-radius: 10px;
   height: 150px;
@@ -43,7 +43,7 @@
 
 .search-form button {
   padding: 14px 40px;
-  background: #f5f5f5;
+  background: #f0f0f0;
   margin: 0 8px;
   color: #333;
 }
@@ -52,10 +52,11 @@
   display: flex;
   justify-content: flex-end;
   padding: 10px 0;
-  /* background-color: #333; */
+  /* background-color: #fff; */
 }
 
 .sortBy select {
+  /* background-color: #f0f0f0; */
   font-size: 16px;
 }
 
@@ -72,12 +73,14 @@
 .user {
   display: flex;
   flex-direction: row;
-  margin: 20px 0;
+  /* margin: 20px 0; */
   align-items: center;
+  background-color: #f5f5f5;
 }
 
 .user .image {
   width: 20%;
+  background-color: #f5f5f5;
 }
 .user .image img {
   width: 100%;
@@ -89,6 +92,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  background-color: #f5f5f5;
   /* padding: 0 ; */
 }
 
@@ -96,6 +100,14 @@
   /* display: block; */
   /* margin-top: 5px; */
   padding: 4px 10px;
+  background-color: #f5f5f5;
+}
+
+.visitUser {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 40px;
+  background-color: #f5f5f5;
 }
 
 .page-options {
@@ -106,7 +118,7 @@
   align-items: center;
   position: sticky;
   bottom: 0;
-  background-color: #fff;
+  background-color: #f0f0f0;
 }
 
 .page-options select {
@@ -117,9 +129,10 @@
 
 .pagination {
   display: flex;
+  background-color: #f0f0f0;
 }
 .pagination button {
-  /* background-color: #f5f5f5; */
+  /* background-color: #fff; */
   padding: 8px 14px;
   border-radius: 4px;
   border: 1px solid #333;
@@ -129,7 +142,7 @@
 }
 
 .pagination button:hover {
-  color: #f5f5f5;
+  color: #f0f0f0;
   background-color: #333;
 }
 
@@ -137,6 +150,7 @@
   color: #333;
   text-decoration: none;
   padding: 4px 20px;
+  background-color: #f5f5f5;
 }
 
 .textPrompt {
@@ -157,14 +171,8 @@
   right: 40px;
   background-color: #333;
   border: 1px solid #333;
-  color: #f5f5f5;
+  color: #f0f0f0;
   text-align: center;
-}
-
-.visitUser {
-  text-decoration: none;
-  color: #333;
-  padding: 10px 40px;
 }
 
 /* @media screen and (min-width: 1024px) {
@@ -187,6 +195,11 @@
     color: #fff;
   }
 
+  .gitLogo {
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+  }
   .search-form form {
     margin: 10px 0;
   }
@@ -211,9 +224,9 @@
 }
 
 /* For Mobile Portrait View */
-@media screen and (max-device-width: 480px) and (orientation: portrait) {
+@media screen and (max-width: 480px) {
   .search-form {
-    background: #333;
+    background-color: #333;
     padding: 10px 40px;
     border-radius: 10px;
     height: 100px;
@@ -230,6 +243,12 @@
   input::placeholder {
     font-size: 10px;
     text-align: center;
+  }
+
+  .gitLogo {
+    width: 35px;
+    height: 35px;
+    background-color: #333;
   }
 
   .search-form form {
@@ -256,18 +275,56 @@
   }
 }
 
+.user {
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.user .image {
+  width: 20%;
+}
+.user .image img {
+  width: 100%;
+  border-radius: 10%;
+}
+
+.userNameAndId {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f5f5f5;
+}
+
+.user-info * {
+  /* display: block; */
+  /* margin-top: 5px; */
+  padding: 2px 8px;
+  background-color: #f5f5f5;
+}
+
+.visitUser {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 25px;
+  font-size: 12px;
+  background-color: #f5f5f5;
+}
+
 /* For Mobile Landscape View */
-@media screen and (max-device-width: 640px) and (orientation: landscape) {
+/* @media screen and (max-device-width: 640px) and (orientation: landscape) {
   .gfg-div {
     width: 400px;
     height: 200px;
     background-color: cyan;
     color: black;
   }
-}
+} */
 
 /* For Mobile Phones Portrait or Landscape View */
-@media screen and (max-device-width: 640px) {
+/* @media screen and (max-device-width: 640px) {
   .search-form {
     background: #333;
     padding: 10px 40px;
@@ -310,4 +367,4 @@
     margin: 0 8px;
     color: #333;
   }
-}
+} */

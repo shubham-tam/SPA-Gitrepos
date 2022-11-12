@@ -17,28 +17,21 @@ export const GitUserData = ({ user }) => {
             rel="noopener noreferrer"
             className={classes.linkUser}
           >
-            <h2>{login} </h2>{" "}
+            <h2>{login}</h2>
           </Link>
           {/* <h2>{login} </h2> */}
           <small> #{id}</small>
         </div>
-        {/* <Link
-          to={`/user/${login}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={classes.linkUser}
-        >
-          {`View ${login} on Github`}{" "}
-        </Link> */}
-        <a
-          href={html_url}
-          target="_blank"
-          rel="noreferrer"
-          className={classes.visitUser}
-        >
-          {" "}
-          {`View ${login} on Github`}{" "}
-        </a>
+        <div style={{ background: "#f5f5f5" }}>
+          <a
+            href={html_url}
+            target="_blank"
+            rel="noreferrer"
+            className={classes.visitUser}
+          >
+            {`View ${login} on Github`}
+          </a>
+        </div>
       </div>
     </div>
   );
