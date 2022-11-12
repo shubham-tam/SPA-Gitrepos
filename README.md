@@ -1,6 +1,8 @@
 # SPA for Github api 
 
-A project based on github api created with React.js
+A project based on github api created with React.js 
+
+Live Demo : github-spa-project.netlify.app/
 
 
 ## Introduction 
@@ -151,11 +153,16 @@ When pasting the url on chrome this is the result.
  
  To test the project you can git clone the repo. 
  
- ## npm install                      // downloads a package and it's dependencies
+ ## npm install                      
  
- ## npm start                        // used to execute the defined file in it without typing its execution command
+ // downloads a package and it's dependencies
  
- Runs the app in the development mode.
+ ## npm start                        
+ 
+ // used to execute the defined file in it without typing its execution command
+ 
  Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ 
+ 
  
  
