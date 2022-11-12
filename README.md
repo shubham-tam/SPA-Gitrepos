@@ -2,7 +2,7 @@
 
 A project based on github api created with React.js 
 
-Live Demo : github-spa-project.netlify.app/
+Live Demo : https://github-spa-project.netlify.app/
 
 
 ## Introduction 
