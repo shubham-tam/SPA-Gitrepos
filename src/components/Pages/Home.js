@@ -9,24 +9,13 @@ import { toast } from "react-toastify";
 
 export const Home = () => {
   const [query, setQuery] = useState("");
-
-  const [users, setUsers] = useState([]); //fetching user from the API
-
-  //Page
+  const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
-
   const [isLastPage, setIsLastPage] = useState(false);
-
   const [maxPage, setMaxPage] = useState();
   let pageForRequest = page;
-
-  //user per page limit
   const [userLimit, setUserLimit] = useState(10);
-
   const [searchFetchList, setSearchFetchList] = useState(false);
-
-  // total no of users,
-  // const [totalUsers, setTotalUsers] = useState(0);
 
   const handleQueryInput = (e) => {
     e.preventDefault();
@@ -45,7 +34,6 @@ export const Home = () => {
           page: pages,
         },
       });
-      // console.log("pages", pages);
       if (status !== 200) {
         toast.error("Success Notification !", {
           position: toast.POSITION.TOP_RIGHT,
@@ -53,11 +41,9 @@ export const Home = () => {
       }
       setUsers(data?.items);
       setSearchFetchList(true);
-      // setTotalUsers(data.total_count);
       const totalUsers = data?.total_count;
       const maxPage = totalUsers > 1000 ? 1000 : totalUsers;
-      // console.log("users", maxPage);
-      // console.log("userlimit", userLimit);
+
       setMaxPage(Math.ceil(maxPage / userLimit));
     } else {
       toast("the field is empty");
@@ -68,7 +54,6 @@ export const Home = () => {
     if (page === 1) {
       setPage(page);
     } else {
-      // console.log("this is page for request", pageForRequest);
       setPage((page) => page - 1);
       pageForRequest -= 1;
       fetchUsers(pageForRequest);
@@ -89,7 +74,6 @@ export const Home = () => {
     setIsLastPage(false);
   };
   const handleLastPage = async () => {
-    // const maxPage = totalUsers > 1000 ? 1000 : totalUsers;
     setIsLastPage(true);
     setPage(maxPage);
     pageForRequest = Math.ceil(maxPage / userLimit);
@@ -135,10 +119,8 @@ export const Home = () => {
         <div className={classes.header}>
           <img src={gitLogo60} alt="" className={classes.gitLogo} />
           <h2 style={{ backgroundColor: "#333" }}> Github search user </h2>
-          {/* <h2 style={{ backgroundColor: "#f5f5f5" }}> Github search user </h2> */}
         </div>
         <form style={{ backgroundColor: "#333" }}>
-          {/* <form style={{ backgroundColor: "#f5f5f5" }}> */}
           <input
             type="text"
             value={query}
