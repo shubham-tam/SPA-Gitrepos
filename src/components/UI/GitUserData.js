@@ -34,7 +34,7 @@ export const GitUserData = ({ user }) => {
           href={html_url}
           target="_blank"
           rel="noreferrer"
-          style={{ textdecoration: "none", color: "red" }}
+          className={classes.visitUser}
         >
           {" "}
           {`View ${login} on Github`}{" "}
