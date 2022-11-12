@@ -1,6 +1,5 @@
 .header {
   background-color: #333;
-  /* background-color: #f5f5f5; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,7 +8,6 @@
 
 .search-form {
   background: #333;
-  /* background: #f0f0f0; */
   padding: 10px 40px;
   border-radius: 10px;
   height: 150px;
@@ -17,7 +15,6 @@
   justify-content: center;
   flex-direction: column;
   color: #fff;
-  /* color: #333; */
 }
 
 .gitLogo {
@@ -52,11 +49,9 @@
   display: flex;
   justify-content: flex-end;
   padding: 10px 0;
-  /* background-color: #fff; */
 }
 
 .sortBy select {
-  /* background-color: #f0f0f0; */
   font-size: 16px;
 }
 
@@ -73,7 +68,6 @@
 .user {
   display: flex;
   flex-direction: row;
-  /* margin: 20px 0; */
   align-items: center;
   background-color: #f5f5f5;
 }
@@ -93,12 +87,9 @@
   align-items: center;
   justify-content: flex-start;
   background-color: #f5f5f5;
-  /* padding: 0 ; */
 }
 
 .user-info * {
-  /* display: block; */
-  /* margin-top: 5px; */
   padding: 4px 10px;
   background-color: #f5f5f5;
 }
@@ -113,8 +104,7 @@
 .page-options {
   margin-top: 10px;
   display: flex;
-  /* flex-direction: row; */
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: sticky;
   bottom: 0;
@@ -125,6 +115,16 @@
   padding: 8px 0;
   border-radius: 5px;
   border: 1px solid #333;
+  background-color: #f0f0f0;
+}
+
+.currentPage {
+  background-color: #f0f0f0;
+}
+
+.perPage {
+  background-color: #f0f0f0;
+  padding: 10px;
 }
 
 .pagination {
@@ -132,7 +132,6 @@
   background-color: #f0f0f0;
 }
 .pagination button {
-  /* background-color: #fff; */
   padding: 8px 14px;
   border-radius: 4px;
   border: 1px solid #333;
@@ -164,63 +163,49 @@
 
 .goToTop {
   position: fixed;
-  padding: 10px 20px;
-  border-radius: 10px;
-  font-size: 20px;
-  bottom: 40px;
-  right: 40px;
-  background-color: #333;
-  border: 1px solid #333;
-  color: #f0f0f0;
-  text-align: center;
+  bottom: 20px;
+  right: 370px;
+  border: none;
+  background-color: none;
 }
 
-/* @media screen and (min-width: 1024px) {
-  .container {
-    width: 700px;
-    margin: 20px auto;
-  }
-} */
+.goToTop:hover {
+  transform: scale(1.2);
+}
 
-/* For Tablet View */
-@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  .search-form {
-    background: #333;
-    padding: 10px 40px;
-    border-radius: 10px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    color: #fff;
-  }
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-  .gitLogo {
-    width: 30px;
-    height: 30px;
-    background-color: #333;
-  }
-  .search-form form {
-    margin: 10px 0;
-  }
-  .search-form input {
-    width: 70%;
-  }
+.user .image {
+  width: 20%;
+}
+.user .image img {
+  width: 100%;
+  border-radius: 10%;
+}
 
-  .search-form input,
-  .search-form button {
-    outline: none;
-    padding: 10px;
-    border-radius: 7px;
-    border: none;
-  }
+.userNameAndId {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f5f5f5;
+}
 
-  .search-form button {
-    padding: 10px 20px;
-    background: #f5f5f5;
-    margin: 0 8px;
-    color: #333;
-  }
+.user-info * {
+  padding: 2px 8px;
+  background-color: #f5f5f5;
+}
+
+.visitUser {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 25px;
+  font-size: 12px;
+  background-color: #f5f5f5;
 }
 
 /* For Mobile Portrait View */
@@ -233,7 +218,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    color: #fff;
+    color: #f5f5f5;
   }
 
   h2 {
@@ -273,98 +258,68 @@
     margin: 0 8px;
     color: #333;
   }
-}
 
-.user {
-  display: flex;
-  flex-direction: row;
-  margin: 20px 0;
-  align-items: center;
-}
-
-.user .image {
-  width: 20%;
-}
-.user .image img {
-  width: 100%;
-  border-radius: 10%;
-}
-
-.userNameAndId {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: #f5f5f5;
-}
-
-.user-info * {
-  /* display: block; */
-  /* margin-top: 5px; */
-  padding: 2px 8px;
-  background-color: #f5f5f5;
-}
-
-.visitUser {
-  text-decoration: none;
-  color: #333;
-  padding: 10px 25px;
-  font-size: 12px;
-  background-color: #f5f5f5;
-}
-
-/* For Mobile Landscape View */
-/* @media screen and (max-device-width: 640px) and (orientation: landscape) {
-  .gfg-div {
-    width: 400px;
-    height: 200px;
-    background-color: cyan;
-    color: black;
-  }
-} */
-
-/* For Mobile Phones Portrait or Landscape View */
-/* @media screen and (max-device-width: 640px) {
-  .search-form {
-    background: #333;
-    padding: 10px 40px;
-    border-radius: 10px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    color: #fff;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  input::placeholder {
-    font-size: 10px;
-    text-align: center;
-  }
-
-  .search-form form {
-    margin: 6px 0;
-  }
-  .search-form input {
-    width: 65%;
-  }
-
-  .search-form input,
-  .search-form button {
-    outline: none;
-    padding: 4px;
-    border-radius: 7px;
+  .goToTop {
+    position: fixed;
+    bottom: 80px;
+    right: 3px;
     border: none;
+    background-color: transparent;
+    border-radius: 0px;
   }
 
-  .search-form button {
-    padding: 5.5px 10px;
-    background: #f5f5f5;
-    font-size: 10px;
-    margin: 0 8px;
-    color: #333;
+  .goToTop img {
+    width: 30px;
+    height: 30px;
   }
-} */
+
+  .perPage {
+    font-size: 10px;
+    background-color: #f0f0f0;
+    padding: 0;
+  }
+
+  .page-options {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    bottom: 0;
+    background-color: #f0f0f0;
+  }
+
+  .page-options select {
+    padding: 1px 0;
+    border-radius: 5px;
+    border: 1px solid #333;
+  }
+
+  h4 {
+    font-size: 8px;
+    width: 40%;
+  }
+
+  .pagination {
+    display: flex;
+    background-color: #f0f0f0;
+  }
+
+  .pagination button {
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    color: #333;
+    margin: 10px 5px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 8px;
+    width: auto;
+    height: 25px;
+  }
+
+  .pagination button:hover {
+    color: #f0f0f0;
+    background-color: #333;
+  }
+}

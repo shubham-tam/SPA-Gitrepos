@@ -148,14 +148,19 @@ export const Home = () => {
           <button onClick={handleSearchUser}> Search </button>
         </form>
       </div>
-      <div className={classes.sortBy}>
-        <select onChange={handleSort}>
-          <option>Best Match</option>
-          <option>Stars</option>
-          <option>Fork</option>
-          <option>Updated</option>
-        </select>
-      </div>
+
+      {searchFetchList ? (
+        <div className={classes.sortBy}>
+          <select onChange={handleSort}>
+            <option>Best Match</option>
+            <option>Stars</option>
+            <option>Fork</option>
+            <option>Updated</option>
+          </select>
+        </div>
+      ) : (
+        ""
+      )}
 
       {users ? (
         users.map((user) => {
@@ -171,15 +176,14 @@ export const Home = () => {
 
       {searchFetchList ? (
         <>
-          <div
-            className={classes["page-options"]}
-            style={{ backgroundColor: "#f0f0f0" }}
-          >
+          <div className={classes["page-options"]}>
             <Pages onChange={handlePageLimit} />
+            <h4 className={classes.currentPage}>
+              Currently at page No. {page}
+            </h4>
             <div className={classes.pagination}>
               <button onClick={handleFirstPage}> First Page</button>
               <button onClick={handlePreviousPage}> {"<<"}</button>
-              <button> {page}</button>
               {isLastPage || page === maxPage ? (
                 <></>
               ) : (

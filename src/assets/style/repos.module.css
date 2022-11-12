@@ -1,21 +1,29 @@
-.moreInfos {
-  display: flex;
-  justify-content: space-between;
-}
-
 .header {
-  display: block;
+  background: #f5f5f5;
+  font-size: 22px;
+  font-weight: bolder;
+  padding: 12px 12px;
 }
 
 .header a {
   text-decoration: none;
   color: #333;
   cursor: pointer;
+  width: auto;
+  height: auto;
+  background: #f5f5f5;
+}
+
+.moreInfos {
+  display: flex;
+  justify-content: space-between;
+  background: #f5f5f5;
 }
 
 .repoInfo {
   display: block;
   padding: 10px 0;
+  background: #f5f5f5;
 }
 
 .icon {
@@ -23,16 +31,75 @@
   height: 16px;
 }
 
+.iconsBg {
+  background: #f5f5f5;
+}
+
 .description {
   font-size: 18px;
   padding: 10px;
+  background: #f5f5f5;
 }
 
 .dateNTime {
   display: block;
   padding: 10px;
+  background: #f5f5f5;
 }
 
 .language {
   padding: 10px;
+  background: #f5f5f5;
+}
+
+small,
+em {
+  background: #f5f5f5;
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    font-size: 15.5px;
+    font-weight: bolder;
+    padding: 10px 10px;
+  }
+
+  .icon {
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+  }
+
+  .moreInfos {
+    display: block;
+    padding: 10px;
+    font-size: 12px;
+    background: #f5f5f5;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .dateNTime {
+    display: block;
+    padding: 10px;
+    font-size: 12px;
+    background: #f5f5f5;
+    margin-top: -20px;
+    margin-bottom: -10px;
+  }
+
+  .language {
+    padding: 10px;
+    font-size: 12px;
+
+    background: #f5f5f5;
+  }
+
+  /* h2, */
+  small,
+  em {
+    background: #f5f5f5;
+  }
 }

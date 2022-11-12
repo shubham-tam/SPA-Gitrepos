@@ -29,7 +29,7 @@ export const User = () => {
         setUserInfo(res[0].data);
         setRepos(res[1].data);
         // console.log(res[0].data);
-        console.log(res[1].data);
+        // console.log(res[1].data);
       } catch (err) {
         console.log(err);
       }
@@ -51,7 +51,6 @@ export const User = () => {
           <p>{userInfo?.bio}</p>
           <div className={classes["more-data"]}>
             <p>
-              {" "}
               <img src={user} alt="" className={classes.icon} />
               {userInfo?.followers} Followers. Following {userInfo?.following}
             </p>
@@ -77,7 +76,6 @@ export const User = () => {
               </p>
             )}
             <p>
-              {" "}
               <img src={github} alt="" className={classes.icon} />
               <a
                 href={userInfo?.html_url}
