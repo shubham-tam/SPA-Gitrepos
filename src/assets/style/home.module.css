@@ -203,7 +203,7 @@
 .visitUser {
   text-decoration: none;
   color: #333;
-  padding: 10px 25px;
+  padding: 10px 20px;
   font-size: 12px;
   background-color: #f5f5f5;
 }
@@ -211,14 +211,7 @@
 /* For Mobile Portrait View */
 @media screen and (max-width: 480px) {
   .search-form {
-    background-color: #333;
-    padding: 10px 40px;
-    border-radius: 10px;
     height: 100px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    color: #f5f5f5;
   }
 
   h2 {
@@ -292,7 +285,6 @@
   .page-options select {
     padding: 1px 0;
     border-radius: 5px;
-    border: 1px solid #333;
   }
 
   h4 {
@@ -300,26 +292,14 @@
     width: 40%;
   }
 
-  .pagination {
-    display: flex;
-    background-color: #f0f0f0;
-  }
-
   .pagination button {
     padding: 4px 8px;
     border-radius: 4px;
-    border: 1px solid #333;
-    color: #333;
     margin: 10px 5px;
     display: flex;
     justify-content: space-around;
     font-size: 8px;
     width: auto;
     height: 25px;
-  }
-
-  .pagination button:hover {
-    color: #f0f0f0;
-    background-color: #333;
   }
 }

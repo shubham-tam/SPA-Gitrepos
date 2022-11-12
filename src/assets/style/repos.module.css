@@ -17,6 +17,7 @@
 .moreInfos {
   display: flex;
   justify-content: space-between;
+  padding: 0 10px;
   background: #f5f5f5;
 }
 
@@ -29,6 +30,7 @@
 .icon {
   width: 16px;
   height: 16px;
+  margin-bottom: -2px;
 }
 
 .iconsBg {

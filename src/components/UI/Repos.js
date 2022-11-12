@@ -3,6 +3,7 @@ import star from "..//..//assets/images/star.png";
 import fork from "..//..//assets/images/fork.svg";
 import branch from "..//..//assets/images/branch.svg";
 import watcher from "..//..//assets/images/watcher.png";
+import issue from "..//..//assets/images/issue.png";
 import classes from ".//..//../assets/style/repos.module.css";
 import moment from "moment/moment";
 
@@ -47,7 +48,10 @@ export const Repos = ({ repo }) => {
             <img src={branch} alt="" className={classes.icon} />
             Branch : {default_branch}
           </div>
-          <div className={classes.iconsBg}> Issues : {open_issues}</div>
+          <div className={classes.iconsBg}>
+            <img src={issue} alt="" className={classes.icon} />
+            Issues : {open_issues}
+          </div>
         </div>
         <div className={classes.dateNTime}>
           Last updated at {moment(updated_at).format("DD-MM-YYYY on  HH:mm ")}

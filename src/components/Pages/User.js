@@ -83,7 +83,7 @@ export const User = () => {
                 rel="noreferrer"
                 className={classes.links}
               >
-                {`Visit ${login} on github`}{" "}
+                {`Visit ${login} on github`}
               </a>
             </p>
           </div>
