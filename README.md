@@ -1,71 +1,161 @@
-# Getting Started with Create React App
+# SPA for Github api 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A project based on github api created with React.js
 
-## Available Scripts
 
-In the project directory, you can run:
+## Introduction 
 
-### `npm start`
+This is a project that uses github’s public api. The user can search for a name and upon search the results are filtered on the basis of best match. On the user’s card we can also visit the user's github profile and also another page where we obtain the detailed page of the user. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies
 
-### `npm test`
+react 18.2
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+axios 1.1.3
 
-### `npm run build`
+react-moment 2.29.4
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+react-router 6.4.3
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+react-toastify 9.1.1
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## API used in this project 
 
-### `npm run eject`
+Gitbubs public API: https://api.github.com/
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+When pasting the url on chrome this is the result. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![image](https://user-images.githubusercontent.com/105226707/201491438-e83d208c-8a75-400a-9671-5b674fce90e3.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  For my project I used the following URLs.
+  
+  "user_url": "https://api.github.com/users/{user}",
 
-## Learn More
+  "user_repositories_url": "https://api.github.com/users/{user}/repos" 
+  
+  "user_search_url": "https://api.github.com/search/users?q={query}{&page,per_page,sort,order}"
+  
+  user_search_url is used to fetch the user’s data array which contains various information including the user’s image (avatar_url), name (login), 
+  id (id), github url   (html_url). 
+  Names enclosed in brackets indicate the name as per github’s api.
+  
+  ```
+  {
+      "login": "reduxjs",
+      "id": 13142323,
+      "node_id": "MDEyOk9yZ2FuaXphdGlvbjEzMTQyMzIz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13142323?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/reduxjs",
+      "html_url": "https://github.com/reduxjs",
+      "followers_url": "https://api.github.com/users/reduxjs/followers",
+      "following_url": "https://api.github.com/users/reduxjs/following{/other_user}",
+      "gists_url": "https://api.github.com/users/reduxjs/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/reduxjs/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/reduxjs/subscriptions",
+      "organizations_url": "https://api.github.com/users/reduxjs/orgs",
+      "repos_url": "https://api.github.com/users/reduxjs/repos",
+      "events_url": "https://api.github.com/users/reduxjs/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/reduxjs/received_events",
+      "type": "Organization",
+      "site_admin": false,
+      "score": 1.0
+    }
+  ```
+  
+  The user card looks like. 
+  
+  ![image](https://user-images.githubusercontent.com/105226707/201492019-5a493db2-18b1-4fc9-b95c-d6a38a1802a8.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  Clicking on the users name (avatar) takes you to the next page which looks like. 
+  
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
+  user_url is used to build the detailed page of the user on the second page. 
+  
+  ```
+  {
+  "login": "Redux",
+  "id": 565224,
+  "node_id": "MDEyOk9yZ2FuaXphdGlvbjU2NTIyNA==",
+  "avatar_url": "https://avatars.githubusercontent.com/u/565224?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/Redux",
+  "html_url": "https://github.com/Redux",
+  "followers_url": "https://api.github.com/users/Redux/followers",
+  "following_url": "https://api.github.com/users/Redux/following{/other_user}",
+  "gists_url": "https://api.github.com/users/Redux/gists{/gist_id}",
+  "starred_url": "https://api.github.com/users/Redux/starred{/owner}{/repo}",
+  "subscriptions_url": "https://api.github.com/users/Redux/subscriptions",
+  "organizations_url": "https://api.github.com/users/Redux/orgs",
+  "repos_url": "https://api.github.com/users/Redux/repos",
+  "events_url": "https://api.github.com/users/Redux/events{/privacy}",
+  "received_events_url": "https://api.github.com/users/Redux/received_events",
+  "type": "Organization",
+  "site_admin": false,
+  "name": null,
+  "company": null,
+  "blog": "",
+  "location": null,
+  "email": null,
+  "hireable": null,
+  "bio": null,
+  "twitter_username": null,
+  "public_repos": 24,
+  "public_gists": 0,
+  "followers": 1,
+  "following": 0,
+  "created_at": "2011-01-14T19:43:31Z",
+  "updated_at": "2016-02-26T23:46:41Z"
+}
+  ```
+  
+  
+  ![image](https://user-images.githubusercontent.com/105226707/201492292-260c4315-553a-4a36-8cca-417108be094c.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  
+  The first card has the detailed deesctiption of the user, all the informattion has been fetched from githubs api.
+  
+  The second card using  "user_repositories_url": "https://api.github.com/users/{user}/repos"  has the user's repositories  and each repository has it's forks, stars, watchers, branche, issues, last uptated. 
+  
+  A short description of the project. 
+  
+  Language used. 
+  
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  In the first page, the user can change the no of users to be displayed per page (10, 20, 50 ,100). 
+  
+  The buttons at the right can be used to visit the first page, previous, next and finally the last page. 
+  
+  ![image](https://user-images.githubusercontent.com/105226707/201492566-23cbf348-18c2-4b5b-9e02-d77a17bfda0c.png)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-"# SPA-Gitrepos" 
+  
+  All the above pagination is done via the githubs API by passing the necessary arguments. 
+  
+  ```   
+  q: query,                         //input
+  sort: sort,                       //sorting
+  order: "desc",                    //sorting order desc = descending 
+  per_page: userLimit,              //setting the userLimit; userLimit is a function 
+  page: pages,                      //pages 
+```
+  
+  Finally the api has been hidden by creating a ```.env``` file in the root folder.
+  
+  Responsivity has been fixed for laptops and mobile phonee. 
+  
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ To test the project you can git clone the repo. 
+ 
+ ## npm install                      // downloads a package and it's dependencies
+ 
+ ## npm start                        // used to execute the defined file in it without typing its execution command
+ 
+ Runs the app in the development mode.
+ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ 
+ 
