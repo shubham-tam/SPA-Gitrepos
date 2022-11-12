@@ -153,13 +153,14 @@
 //   );
 // };
 
-import React, { useState, useEffect } from "react";
-import gitLogo60 from "..//..//assets/images/gitWhite60.png";
+import React, { useState, useEffect, useCallback } from "react";
 import classes from "..//..//assets/style/home.module.css";
-import axios from "..//..//axios";
+import axios from "../../axios";
 import { GitUserData } from "../UI/GitUserData";
 import { Pages } from "../UI/Pages";
 import GoToTop from "../UI/GoToTop";
+// import { PageButtonPlus } from "../UI/PageButtonPlus";
+// import { PageButtonMinus } from "../UI/PageButtonMinus";
 
 export const Home = () => {
   const [query, setQuery] = useState("");
@@ -173,8 +174,6 @@ export const Home = () => {
   //user per page limit
   const [userLimit, setUserLimit] = useState(10);
 
-  const [searchFetchList, setSearchFetchList] = useState(false);
-
   // total no of users,
   const [totalUsers, setTotalUsers] = useState(0);
 
@@ -184,23 +183,6 @@ export const Home = () => {
     setQuery(value);
   };
 
-  // const handlePages = async () => {
-  //   if (query) {
-  //     const { data } = await axios.get(
-  //       // `/search/users?q=${query}`
-  //       `/search/users`,
-  //       {
-  //         params: {
-  //           q: query,
-  //           page: page - 1,
-  //           per_page: userLimit,
-  //         },
-  //       }
-  //     );
-  //     setUsers(data?.items);
-  //     // setTotalUsers(data.total_count);
-  //   }
-  // };
   const handlePreviousPage = () => {
     setPage((page) => {
       if (page === 1) {
@@ -228,55 +210,83 @@ export const Home = () => {
         }
       );
       setUsers(data?.items);
-      // setTotalUsers(data.total_count);
+      setTotalUsers(data.total_count);
     }
+    // fetchUsers(query, page, userLimit);
   };
-  const handleFirstPage = async () => {
-    setPage(1);
-    pageForRequest = 1;
-    if (query) {
-      const { data } = await axios.get(
-        // `/search/users?q=${query}`
-        `/search/users`,
-        {
-          params: {
-            q: query,
-            page: pageForRequest,
-            per_page: userLimit,
-          },
-        }
-      );
-      setUsers(data?.items);
-      // setTotalUsers(data.total_count);
-    }
-  };
-  const handleLastPage = async () => {
-    console.log("TOTALUSES------", totalUsers);
-    const maxPage = totalUsers > 1000 ? 1000 : totalUsers;
-    console.log("Max Page", maxPage);
-    setPage(Math.ceil(maxPage / userLimit));
-    pageForRequest = Math.ceil(maxPage / userLimit);
-    if (query) {
-      const { data } = await axios.get(
-        // `/search/users?q=${query}`
-        `/search/users`,
-        {
-          params: {
-            q: query,
-            page: pageForRequest,
-            per_page: userLimit,
-          },
-        }
-      );
-      setUsers(data?.items);
-      // setTotalUsers(data.total_count);
-    }
-  };
+  // }, [query, userLimit, page]);
+
+  // const handleNextPage = async () => {
+  //   setPage((page) => page + 1);
+  //   if (query) {
+  //     const { data } = await axios.get(
+  //       // `/search/users?q=${query}`
+  //       `/search/users`,
+  //       {
+  //         params: {
+  //           q: query,
+  //           page: page,
+  //           per_page: userLimit,
+  //         },
+  //       }
+  //     );
+  //     setUsers(data?.items);
+  //     setTotalUsers(data.total_count);
+  //   }
+  //   // fetchUsers(query, page, userLimit);
+  // };
 
   const handlePageLimit = (e) => {
     const value = e.target.value;
     setUserLimit(parseInt(value));
   };
+
+  // const fetchUsers = async () => {
+  //   try {
+  //     console.log("called axois api")
+  //     const { data } = await axios.get(`/search/users?q=${query}`, {
+  //       params: {
+  //         page: page,
+  //         per_page: userLimit,
+  //       },
+  //     });
+  //     setUsers(data?.items)
+  //     setTotalUsers(data.total_count)
+
+  //     // return data?.items;
+  //   } catch (err) {
+  //     console.log(err);
+  //     return null;
+  //   }
+  // };
+
+  // const totalUserCount = async () => {
+  //   try {
+  //     const { data } = await axios.get(`/search/users?q=${query}`);
+  //     // console.log(data.total_count);
+  //     return data.total_count;
+  //   } catch (err) {
+  //     console.log(err);
+  //     return null;
+  //   }
+  // };
+
+  // const fetchUsers = async (query, users, userLimit) => {
+  //   if (query) {
+  //     const { data } = await axios.get(
+  //       // `/search/users?q=${query}`
+  //       `/search/users`,
+  //       {
+  //         params: {
+  //           q: query,
+  //           page: page,
+  //           per_page: userLimit,
+  //         },
+  //       }
+  //     );
+  //     setUsers(data?.items);
+  //     setTotalUsers(data.total_count);
+  //   }
 
   const handleSearchUser = async (e) => {
     e.preventDefault();
@@ -293,26 +303,42 @@ export const Home = () => {
         }
       );
       setUsers(data?.items);
-      console.log(data?.items);
-      setSearchFetchList(true);
       setTotalUsers(data.total_count);
     } else {
       alert("Your query is empty...");
     }
   };
 
-  useEffect(() => {}, [userLimit]);
+  useEffect(() => {
+    // const displayUserOnChange = async () => {
+    //   if (query) {
+    //     const items = await fetchUsers();
+    //     setUsers(items);
+    //     const total_count = await totalUserCount();
+    //     setTotalUsers(total_count);
+    //   }
+    // };
+    // displayUserOnChange();
+  }, [userLimit]);
+
+  // const pagenation = () => {
+  //   if (totalUsers === 0) {
+  //     return null;
+  //   } else {
+  //     let a = { userLimit };
+  //     let b = { setTotalUsers };
+  //     let finalPage = `${b % a}` + 1;
+  //     // return pageNo;
+  //     // console.log(b);
+  //     console.log(finalPage);
+  //   }
+  // };
 
   return (
     <div className="container">
       <div className={classes["search-form"]}>
-        <div className={classes.header}>
-          <img src={gitLogo60} alt="" className={classes.gitLogo} />
-          <h2 style={{ backgroundColor: "#333" }}> Github search user </h2>
-          {/* <h2 style={{ backgroundColor: "#f5f5f5" }}> Github search user </h2> */}
-        </div>
+        <h2 style={{ backgroundColor: "#333" }}> Github search user </h2>
         <form style={{ backgroundColor: "#333" }}>
-          {/* <form style={{ backgroundColor: "#f5f5f5" }}> */}
           <input
             type="text"
             value={query}
@@ -335,6 +361,9 @@ export const Home = () => {
       </div> */}
       {users ? (
         users.map((user) => {
+          // if (index >= userLimit) {
+          //   return;
+          // } else {
           return (
             <li className={classes.list} key={user.id}>
               <GitUserData user={user} />
@@ -346,7 +375,8 @@ export const Home = () => {
         <h2>There is nothing to display...</h2>
       )}
 
-      {searchFetchList ? (
+      {/* {query && users ? <></> : <h2> Please type to find some users</h2>} */}
+      {/* { (
         <>
           <div
             className={classes["page-options"]}
@@ -354,16 +384,31 @@ export const Home = () => {
           >
             <Pages onChange={handlePageLimit} />
             <div className={classes.pagination}>
-              <button onClick={handleFirstPage}> First Page</button>
               <button onClick={handlePreviousPage}> {page}</button>
               <button onClick={handleNextPage}> {page + 1}</button>
-              <button onClick={handleLastPage}> Last Page</button>
+            </div>
+          </div>
+          <GoToTop />
+        </>
+      )} */}
+
+      {query && users ? (
+        <>
+          <div
+            className={classes["page-options"]}
+            style={{ backgroundColor: "#f5f5f5" }}
+          >
+            <Pages onChange={handlePageLimit} />
+            <div className={classes.pagination}>
+              <button onClick={handlePreviousPage}> {page}</button>
+              {/* <button onClick={nxtPG.handleNextPage}> {page + 1}</button> */}
+              <button onClick={handleNextPage}> {page + 1}</button>
             </div>
           </div>
           <GoToTop />
         </>
       ) : (
-        <h2 className={classes.textPrompt}> Please type to find some users</h2>
+        <h2> Please type to find some users</h2>
       )}
     </div>
   );
