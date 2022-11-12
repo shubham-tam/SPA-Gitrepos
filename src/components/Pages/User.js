@@ -11,12 +11,7 @@ import axios from "../../axios";
 
 export const User = () => {
   const { login } = useParams();
-
-  //user information
   const [userInfo, setUserInfo] = useState({});
-
-  // userRepos
-
   const [repos, setRepos] = useState([]);
 
   useEffect(() => {
@@ -28,8 +23,6 @@ export const User = () => {
         ]);
         setUserInfo(res[0].data);
         setRepos(res[1].data);
-        // console.log(res[0].data);
-        // console.log(res[1].data);
       } catch (err) {
         console.log(err);
       }

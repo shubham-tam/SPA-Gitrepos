@@ -3,7 +3,7 @@ import gitLogo60 from "..//..//assets/images/gitWhite60.png";
 import classes from "..//..//assets/style/home.module.css";
 import axios from "..//..//axios";
 import { GitUserData } from "../UI/GitUserData";
-import { Pages } from "../UI/Pages";
+import { Pages } from "../UI/PerPageButton";
 import GoToTop from "../UI/GoToTop";
 import { toast } from "react-toastify";
 

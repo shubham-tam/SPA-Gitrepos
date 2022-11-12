@@ -19,7 +19,6 @@ export const GitUserData = ({ user }) => {
           >
             <h2>{login}</h2>
           </Link>
-          {/* <h2>{login} </h2> */}
           <small> #{id}</small>
         </div>
         <div style={{ background: "#f5f5f5" }}>
