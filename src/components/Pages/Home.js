@@ -164,7 +164,12 @@ export const Home = () => {
               Currently at page No. {page}
             </h4>
             <div className={classes.pagination}>
-              <button onClick={handleFirstPage}> First Page</button>
+              {page === 1 ? (
+                <></>
+              ) : (
+                <button onClick={handleFirstPage}> First Page</button>
+              )}
+
               <button onClick={handlePreviousPage}> {"<<"}</button>
               {isLastPage || page === maxPage ? (
                 <></>

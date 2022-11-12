@@ -8,6 +8,7 @@ import user from "..//..//assets/images/user.png";
 import classes from "..//..//assets/style/user.module.css";
 import GoToTop from "../UI/GoToTop";
 import axios from "../../axios";
+import { toast } from "react-toastify";
 
 export const User = () => {
   const { login } = useParams();
@@ -24,7 +25,7 @@ export const User = () => {
         setUserInfo(res[0].data);
         setRepos(res[1].data);
       } catch (err) {
-        console.log(err);
+        toast.error("something wrong with the api");
       }
     };
     fetchUserInformation();
