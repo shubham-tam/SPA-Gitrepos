@@ -146,7 +146,7 @@ When pasting the url on chrome this is the result.
   
   Finally the api has been hidden by creating a ```.env``` file in the root folder.
   
-  Responsivity has been fixed for laptops and mobile phonee. 
+  Responsivity has been fixed for laptops and mobile phone. 
   
  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
