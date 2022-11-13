@@ -118,7 +118,7 @@ When pasting the url on chrome this is the result.
   ![image](https://user-images.githubusercontent.com/105226707/201492292-260c4315-553a-4a36-8cca-417108be094c.png)
 
   
-  The first card has the detailed deesctiption of the user, all the informattion has been fetched from githubs api.
+  The first card has the detailed desctiption of the user, all the informattion has been fetched from githubs api.
   
   The second card using  "user_repositories_url": "https://api.github.com/users/{user}/repos"  has the user's repositories  and each repository has it's forks, stars, watchers, branche, issues, last uptated. 
   
