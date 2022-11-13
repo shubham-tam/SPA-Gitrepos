@@ -7,7 +7,9 @@ export const GitUserData = ({ user }) => {
   return (
     <div className={classes.user}>
       <div className={classes.image}>
-        <img src={avatar_url} alt={login} />
+        <Link to={`/user/${login}`} target="_blank" rel="noopener noreferrer">
+          <img src={avatar_url} alt={login} />
+        </Link>
       </div>
       <div className={classes["user-info"]}>
         <div className={classes.userNameAndId}>
