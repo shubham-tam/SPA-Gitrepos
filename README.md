@@ -24,7 +24,7 @@ react-toastify 9.1.1
 
 ## API used in this project 
 
-Gitbubs public API: https://api.github.com/
+Github's public API: https://api.github.com/
 
 When pasting the url on chrome this is the result. 
 
@@ -67,11 +67,11 @@ When pasting the url on chrome this is the result.
     }
   ```
   
-  The user card looks like. 
+  The user card looks like this. 
   
   ![image](https://user-images.githubusercontent.com/105226707/201492019-5a493db2-18b1-4fc9-b95c-d6a38a1802a8.png)
 
-  Clicking on the users name (avatar) takes you to the next page which looks like. 
+  Clicking on the user's name (avatar) takes you to the next page which looks like. 
   
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
   
@@ -118,23 +118,23 @@ When pasting the url on chrome this is the result.
   ![image](https://user-images.githubusercontent.com/105226707/201492292-260c4315-553a-4a36-8cca-417108be094c.png)
 
   
-  The first card has the detailed desctiption of the user, all the informattion has been fetched from githubs api.
+The first card has the detailed description of the user, all the information has been fetched from github's api.
   
-  The second card using  "user_repositories_url": "https://api.github.com/users/{user}/repos"  has the user's repositories  and each repository has it's forks, stars, watchers, branche, issues, last uptated. 
+  The second card using  "user_repositories_url": "https://api.github.com/users/{user}/repos"  has the user's repositories  and each repository has it's forks, stars, watchers, branche, issues, last updated. 
   
   A short description of the project. 
   
   Language used. 
   
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  In the first page, the user can change the no of users to be displayed per page (10, 20, 50 ,100). 
+  In the first page, the user can change the number of users to be displayed per page (10, 20, 50 ,100). 
   
   The buttons at the right can be used to visit the first page, previous, next and finally the last page. 
   
   ![image](https://user-images.githubusercontent.com/105226707/201492566-23cbf348-18c2-4b5b-9e02-d77a17bfda0c.png)
 
   
-  All the above pagination is done via the githubs API by passing the necessary arguments. 
+  All the above pagination is done via the github's API by passing the necessary arguments. 
   
   ```   
   q: query,                         //input
@@ -146,7 +146,7 @@ When pasting the url on chrome this is the result.
   
   Finally the api has been hidden by creating a ```.env``` file in the root folder.
   
-  Responsivity has been fixed for laptops and mobile phone. 
+  Responsivity has been fixed for laptops and mobile phones. 
   
  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
