@@ -133,12 +133,15 @@ export const Home = () => {
 
       {searchFetchList ? (
         <div className={classes.sortBy}>
-          <select onChange={handleSort}>
-            <option>Best Match</option>
-            <option>Stars</option>
-            <option>Fork</option>
-            <option>Updated</option>
-          </select>
+          <label>
+            Sort :
+            <select onChange={handleSort}>
+              <option>Best Match</option>
+              <option>Stars</option>
+              <option>Fork</option>
+              <option>Updated</option>
+            </select>
+          </label>
         </div>
       ) : (
         ""
